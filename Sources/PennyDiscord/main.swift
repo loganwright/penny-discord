@@ -17,13 +17,15 @@ bot.on(.messageCreate) { data in
 
     // coin parsing
     if processor.shouldGiftCoin(in: msg.content) {
-        let usersToGift = processor.userIdsToGift(in: msg.content, fromId: author.id.description)
-        if !usersToGift.isEmpty {
-            let formatted = usersToGift.map { "<@\($0)>" }
-            let text = "I should gift: " + formatted.joined(separator: ", ")
-            print("Response: \(text)")
-            msg.reply(with: text)
-        }
+        let from = author.id.description
+        let usersToGift = processor.userIdsToGift(in: msg.content, fromId: from)
+        try! giveCoins(to: usersToGift, from: from, respond: msg)
+//        if !usersToGift.isEmpty {
+//            let formatted = usersToGift.map { "<@\($0)>" }
+//            let text = "I should gift: " + formatted.joined(separator: ", ")
+//            print("Response: \(text)")
+//            msg.reply(with: text)
+//        }
     } else {
         // other stuff in future
     }
