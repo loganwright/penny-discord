@@ -16,7 +16,7 @@ func giveCoins(to: [String], from: String, respond: Message) throws {
 }
 
 func totalCoins(for id: String, respond: Message) {
-    let url = base + "/coins/total?id=\(id)&source=discord"
+    let url = base + "/coins/discord/\(id)/total"
     Request.get(url).run { run in
         let response = try run.map(to: TotalResponse.self)
         let message = "<@\(id)> has \(response.total) coins."
