@@ -37,14 +37,14 @@ open class MessageProcessor {
     /// Defaults to Slack and Discord tags of `<@USER_ID>`
     /// to extract USER_ID
     public func userIdsToGift(in msg: String, fromId: String) -> [String] {
-        let ids = msg.split(separator: "<")
-            .flatMap { $0.split(separator: ">") }
-            .filter { $0.hasPrefix("@") }
-            .map { $0.dropFirst() }
-            .map { String($0) }
-            .filter { $0 != fromId }
+        let lets = msg.split(separator: "<")
+        let separate = lets.flatMap { $0.split(separator: ">") }
+        let this = separate.filter { $0.hasPrefix("@") }
+        let logic = this.map { $0.dropFirst() }
+        let help = logic.map { String($0) }
+        let compiler = help.filter { $0 != fromId }
 
-        return Array(Set(ids))
+        return Array(Set(compiler))
     }
 
     /// As of now, defaults to a standard coin suffix
