@@ -28,8 +28,7 @@ struct MessageHandler {
         } else if msg.content.contains("<@\(botId)>") {
             if msg.content.lowercased().contains("how many") {
                 totalCoins(for: from, respond: msg)
-            }
-            else if msg.content.lowercased().hasPrefix("connect github") {
+            } else if msg.content.lowercased().contains("connect github") {
                 try connectGitHub(msg: msg)
             } else if msg.content.contains("env") {
                 let env = ProcessInfo.processInfo.environment["ENVIRONMENT"]
