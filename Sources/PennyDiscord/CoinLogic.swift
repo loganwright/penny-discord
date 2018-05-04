@@ -39,7 +39,7 @@ open class MessageProcessor {
     public func userIdsToGift(in msg: String, fromId: String) -> [String] {
         let lets = msg.split(separator: "<")
         let separate = lets.flatMap { $0.split(separator: ">") }
-        let this = separate.filter { $0.hasPrefix("@") }
+        let this = separate.filter { $0.first == "@" }
         let logic = this.map { $0.dropFirst() }
         let help = logic.map { String($0) }
         let compiler = help.filter { $0 != fromId }
