@@ -6,13 +6,13 @@ struct MessageHandler {
 
     func handle(_ msg: Message) {
         do {
-            try _handle(msg)
+            try interalHandle(msg)
         } catch {
             print("something went wrong:\n\nmsg: \(msg)\n\nerror: \(error)")
         }
     }
 
-    func _handle(_ msg: Message) throws {
+    private func interalHandle(_ msg: Message) throws {
         let botId = bot.user?.id.description ?? "<>"
         // no author means webhook, which we don't support
         guard let author = msg.author else { return }
@@ -31,6 +31,10 @@ struct MessageHandler {
             }
             else if msg.content.lowercased().hasPrefix("connect github") {
                 try connectGitHub(msg: msg)
+            } else if msg.content.contains("env") {
+                let env = ProcessInfo.processInfo.environment["ENVIRONMENT"]
+                    ?? "the void"
+                msg.reply(with: "I'm in \(env)")
             }
         } else if msg.content == "!ping" {
             msg.reply(with: "pong!")
