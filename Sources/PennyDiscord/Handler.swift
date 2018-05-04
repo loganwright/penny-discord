@@ -8,7 +8,7 @@ struct MessageHandler {
         do {
             try interalHandle(msg)
         } catch {
-            print("something went wrong:\n\nmsg: \(msg)\n\nerror: \(error)")
+            msg.reply(with: "Something happened: \(error)")
         }
     }
 

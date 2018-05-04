@@ -38,8 +38,12 @@ struct GitHubLinkResponse: Codable {
 func connectGitHub(msg: Message) throws {
     let eater = Eater(msg)
     eater.eat {
-        guard let githubUsername = msg.content.components(separatedBy: " ").last else {
-            throw "unable to parse github username, use format `connect github YOUR_NAME_HERE`"
+        let helper = "unable to parse github username, use format `connect github YOUR_NAME_HERE`"
+
+        let components = msg.content.components(separatedBy: " ")
+        guard  components.count == 4 else { throw helper }
+        guard let githubUsername = components.last else {
+            throw helper
         }
         guard let id = msg.author?.id.description else {
             throw "unable to find discord author"
