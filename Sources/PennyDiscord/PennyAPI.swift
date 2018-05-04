@@ -1,7 +1,7 @@
 import Sword
 import Foundation
 
-let base = "https://penny.ngrok.io"
+let base = ProcessInfo.processInfo.environment["PENNY_API_BASE"] ?? "https://penny.ngrok.io"
 
 func giveCoins(to: [String], from: String, respond: Message) throws {
     let url = base + "/coins"
