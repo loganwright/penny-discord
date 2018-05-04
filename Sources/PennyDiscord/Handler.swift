@@ -29,8 +29,9 @@ struct MessageHandler {
             if msg.content.lowercased().contains("how many") {
                 totalCoins(for: from, respond: msg)
             }
-        } else if msg.content.lowercased().hasPrefix("connect github") {
-            try connectGitHub(msg: msg)
+            else if msg.content.lowercased().hasPrefix("connect github") {
+                try connectGitHub(msg: msg)
+            }
         } else if msg.content == "!ping" {
             msg.reply(with: "pong!")
         }

@@ -18,6 +18,8 @@ public let validSuffixes = [
     "thanks!",
     "thank you",
     "thank you!",
+    "thx",
+    "thx!"
 ]
 
 extension String {
