@@ -7,7 +7,7 @@ let package = Package(
     name: "PennyDiscord",
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/Azoy/Sword", from: "0.9.0"),
+        .package(url: "https://github.com/loganwright/Sword", from: "0.9.1"),
     ],
     targets: [
         .target(

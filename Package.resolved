@@ -38,15 +38,6 @@
         }
       },
       {
-        "package": "PennyCore",
-        "repositoryURL": "/Users/loganwright/Desktop/penny-core",
-        "state": {
-          "branch": "master",
-          "revision": "cb905d0e6018237d152b69791a6ebb762fc645f5",
-          "version": null
-        }
-      },
-      {
         "package": "Sockets",
         "repositoryURL": "https://github.com/vapor/sockets.git",
         "state": {
@@ -75,11 +66,11 @@
       },
       {
         "package": "Sword",
-        "repositoryURL": "https://github.com/azoy/sword",
+        "repositoryURL": "https://github.com/loganwright/Sword",
         "state": {
           "branch": null,
-          "revision": "1b94ee1dfbfd9b2c78f2f298b2b10968befccef4",
-          "version": "0.9.0"
+          "revision": "792728ca0f0621f1e94a0292bdfe2b5df116b238",
+          "version": "0.9.1"
         }
       },
       {
