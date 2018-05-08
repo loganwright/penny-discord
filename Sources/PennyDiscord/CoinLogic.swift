@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: Coin Suffix
 
 public let validSuffixes = [
