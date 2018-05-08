@@ -40,7 +40,11 @@ open class MessageProcessor {
         let lets = msg.split(separator: "<")
         let separate = lets.flatMap { $0.split(separator: ">") }
         let this = separate.filter { $0.first == "@" }
-        let logic = this.map { $0.dropFirst() }
+        let logic = this.map {
+            // weird `!` thing in discord
+            guard $0.hasPrefix("@!") else { return $0.dropFirst() }
+            return $0.dropFirst(2)
+        } as [Substring]
         let help = logic.map { String($0) }
         let compiler = help.filter { $0 != fromId }
 
