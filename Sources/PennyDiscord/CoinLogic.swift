@@ -24,7 +24,7 @@ public let validSuffixes = [
 
 extension String {
     var hasCoinSuffix: Bool {
-        for suffix in validSuffixes where hasSuffix(suffix) {
+        for suffix in validSuffixes where self.lowercased().hasSuffix(suffix.lowercased()) {
             return true
         }
         return false
