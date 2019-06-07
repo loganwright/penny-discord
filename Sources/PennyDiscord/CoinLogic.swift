@@ -9,6 +9,7 @@ public let validSuffixes = [
     "+ 1",
     "advance(by: 1)",
     "successor()",
+    ":coin:",
     "👍",
     ":+1:",
     ":thumbsup:",
